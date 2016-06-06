@@ -2,7 +2,7 @@
  docker image for check ENV &amp; CMD function on Arukas service
 
 [Arukas](https://arukas.io) is a container hosting service.
-Run this container image on Arukas setting below, You can check functions Arukas Service.
+Run this container image on Arukas setting below, You can check ENV & CMD functions on Arukas Service.
 
 ## SETTING
 
@@ -11,7 +11,7 @@ TCP 80
 
 ### ENV
 key:SAMPLEENV  val:{freely value}
-key:NEXTENV    val:{freely}
+key:NEXTENV    val:{freely value}
 
 ### CMD
 /cmd.sh
@@ -73,7 +73,7 @@ NEXTENV = unabled
 ```
 CMD is working =P
 ```
-
+or 
 ```
 CMD is not working!!
 ```
