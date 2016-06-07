@@ -10,8 +10,8 @@ Run this container image on Arukas setting below, You can check ENV & CMD functi
 TCP 80
 
 ### ENV
-key:SAMPLEENV  val:{freely value}
-key:NEXTENV    val:{freely value}
+key:SAMPLEENV  val:hogehoge
+key:NEXTENV    val:hogehoge
 
 ### CMD
 /cmd.sh
@@ -45,8 +45,9 @@ curl -n -X POST https://app.arukas.io/api/app-sets \
             "number": 80,
             "protocol": "tcp"
           }
-        "name": "endpointhogehoge"
-      }
+        ]
+      },
+      "name": "endpointhogehoge"
     },
     {
       "type": "apps",
