@@ -28,23 +28,12 @@ RUN apk --update add pcre-dev openssl-dev \
   nginx-${NGINX_VERSION} \
   nginx-${NGINX_VERSION}.tar.gz \
            /var/cache/apk/* \
-  && echo "<p> ENV TEST </p>" > /usr/share/nginx/html/index.html \
-  && echo "SAMPLEENV = ${SAMPLEENV}  <br>" >> /usr/share/nginx/html/index.html \
-  && echo "NEXTENV = ${NEXTENV}  <br>" >> /usr/share/nginx/html/index.html \
-  && echo "<p>CMD check</p>" >> /usr/share/nginx/html/index.html \
-  && echo '<p style="color:red;">CMD is not working!! </p>' >> /usr/share/nginx/html/index.html \
-  && echo '#!/bin/ash' > /cmd.sh \
-  && echo 'sed -i "s/red/green/g" /usr/share/nginx/html/index.html' >> /cmd.sh \
-  && echo 'sed -i "s/not //g" /usr/share/nginx/html/index.html' >> /cmd.sh \
-  && echo 'sed -i "s/!!/ =P/g" /usr/share/nginx/html/index.html' >> /cmd.sh \
-  && echo '/cron.sh && crond start && nginx -g "daemon off;"' >> /cmd.sh \
-  && chmod 755 /cmd.sh \
-  && echo 'sed -i "s/SAMPLEENV.*/SAMPLEENV = $(printenv SAMPLEENV) <br>/" /usr/share/nginx/html/index.html' > /cron.sh \
-  && echo 'sed -i "s/NEXTENV.*/NEXTENV = $(printenv NEXTENV) <br> /" /usr/share/nginx/html/index.html' >> /cron.sh \
-  && chmod 755 /cron.sh \
-  && echo '*/1     *       *       *       *       /cron.sh' >> /etc/crontabs/root
+  && echo '*/1     *       *       *       *       /envchk.sh' >> /etc/crontabs/root
+
+COPY cmd.sh envchk.sh / 
+COPY index.html /usr/share/nginx/html/
 
 
 EXPOSE 80 443
 
-CMD crond start && /cron.sh && nginx -g "daemon off;"
+CMD crond start && /envchk.sh && nginx -g "daemon off;"
