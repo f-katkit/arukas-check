@@ -17,7 +17,7 @@ key:NEXTENV    val:hogehoge
 /cmd.sh
 
 ### crul sample 
-(use [Arukas api](https://arukas.io/en/documents-en/arukas-api-reference/#app-sets_create))
+(use [Arukas api](https://arukas.io/en/documents-en/arukas-api-reference-en/))
 
 ```
 curl -n -X POST https://app.arukas.io/api/app-sets \
