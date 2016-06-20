@@ -4,6 +4,8 @@ ENV NGINX_VERSION=1.10.0 \
  SAMPLEENV=unabled  \
  NEXTENV=unabled
 
+COPY cmd.sh envchk.sh / 
+
 RUN apk --update add pcre-dev openssl-dev \
   && apk add --virtual build-dependencies build-base curl \
   && curl -SLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
@@ -28,9 +30,10 @@ RUN apk --update add pcre-dev openssl-dev \
   nginx-${NGINX_VERSION} \
   nginx-${NGINX_VERSION}.tar.gz \
            /var/cache/apk/* \
-  && echo '*/1     *       *       *       *       /envchk.sh' >> /etc/crontabs/root
+  && echo '*/1     *       *       *       *       /envchk.sh' >> /etc/crontabs/root \
+  && chmod 755 /cmd.sh \
+  && chmod 755 /envchk.sh
 
-COPY cmd.sh envchk.sh / 
 COPY index.html /usr/share/nginx/html/
 
 

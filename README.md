@@ -67,7 +67,7 @@ curl -n -X POST https://app.arukas.io/api/app-sets \
 SAMPLEENV = Success! 
 NEXTENV = unabled 
 ```
-"unabled" is shown when you has'nt set env or Arukas server has get troubles.
+"unabled" is shown when you has'nt set env or Arukas server has got troubles.
 
 ### CMD check
 
