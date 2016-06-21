@@ -16,7 +16,7 @@ key:NEXTENV    val:hogehoge
 ### CMD
 /cmd.sh
 
-### crul sample 
+### curl sample 
 (use [Arukas api](https://arukas.io/en/documents-en/arukas-api-reference-en/))
 
 ```
@@ -67,7 +67,7 @@ curl -n -X POST https://app.arukas.io/api/app-sets \
 SAMPLEENV = Success! 
 NEXTENV = unabled 
 ```
-"unabled" is shown when you has'nt set env or Arukas server has got troubles.
+"unabled" is shown when env set empty or Arukas server has got troubles.
 
 ### CMD check
 
@@ -81,4 +81,5 @@ CMD is not working!!
 
 ## Demo
 https://envcmdtest.arukascloud.io/
+
 https://envsvalue.arukascloud.io/
