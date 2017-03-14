@@ -26,7 +26,7 @@ curl -n -X POST https://app.arukas.io/api/app-sets \
     {
       "type": "containers",
       "attributes": {
-        "image_name": "fkatkit:arukas-check",
+        "image_name": "fkatkit/arukas-check",
         "instances": 1,
         "mem": 256,
         "cmd": "/cmd.sh",
