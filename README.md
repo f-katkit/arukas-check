@@ -46,8 +46,7 @@ curl -n -X POST https://app.arukas.io/api/app-sets \
             "protocol": "tcp"
           }
         ]
-      },
-      "name": "endpointhogehoge"
+      }
     },
     {
       "type": "apps",
